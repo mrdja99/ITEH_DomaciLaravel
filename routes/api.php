@@ -36,5 +36,6 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::get('/film', [FilmController::class, 'index']);
     Route::get('/film/{id}', [FilmController::class, 'show']);
 
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
 

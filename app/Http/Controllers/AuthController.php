@@ -43,8 +43,12 @@ class AuthController extends Controller
 
         $token = $user -> createToken('auth_token')->plainTextToken;
 
-        return response() -> json(['message' => 'Hello ' . $user -> name . ', welcome to home','acces_token'=>$token,'token_type' => 'Bearer'] );
+        return response() -> json(['message' => 'Hello ' . $user -> name . ', dobrodosao','acces_token'=>$token,'token_type' => 'Bearer'] );
+    }
 
+    public function logout(Request $request) {
+        auth()->user()->tokens()->delete();
+        return response() -> json(['message' => 'Uspesno ste izlogovani'] );
     }
 
 }
